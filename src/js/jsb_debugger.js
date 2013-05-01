@@ -388,7 +388,7 @@ textResponder.commandResponse = function (commandresult) {
             if (true === commandresult.success) {
                 response += commandresult.stringResult;
             } else {
-                response += "ERROR : deval failed " + commandresult.stringResult;
+                response += "ERROR : eval failed " + commandresult.stringResult;
             } 
             break;
         case "line" :
