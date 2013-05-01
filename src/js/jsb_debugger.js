@@ -153,9 +153,10 @@ textCommandProcessor.eval = function (str, frame, script) {
 
 	if (stringToEval) {
         try {
-		    var evalResult = frame['eval'](stringToEval);
+		    var evalResult = frame['eval']("JSON.stringify(eval(" + stringToEval + "));");
 		    if (evalResult && evalResult['return']) {
-                var stringreport = debugObject(evalResult['return']);
+                var stringreport = evalResult['return'];
+                // var stringreport = debugObject(evalResult['return']);
                 return ({commandname : "eval",
                          success : true,
                          stringResult : stringreport});
